@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="en-us">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   <head>
     <meta charset="UTF-8">
     <title>All the News that Fit to Scrape</title>
     <style>
-      body { background-color: #F2F6D0 }
+      body { background-color: #bbdefb }
       #wrapper {
         width: 960px;
         margin-left: auto;
@@ -40,14 +45,16 @@
   </head>
   <body>
     <div id="wrapper">
-      <h1>Note Scraper</h1>
-      <h2><i>If you can do this...the homework should be no problem.</i></h2>
-      <div id="articles"></div>
-      <div id="notes"></div>
+    <div id="notes"></div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="app.js"></script>
     <form action="/submit" method="post">
+      <a class="waves-effect waves-light btn-large">Mongo Scraper</a>
+      <a class="waves-effect waves-light btn-large">Home</a>
+      <a class="waves-effect waves-light btn-large">Saved Articles</a>
+      <a class="waves-effect waves-light btn-large">Scrape New Articles</a>
+      
       <h1>Hi User!</h1>
       <h2>Enter a Note!</h2>
         <input type="text" name="title" placeholder="Title">
