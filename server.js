@@ -44,17 +44,28 @@ mongoose.connect("mongodb://localhost/week18Populater", {
   useMongoClient: true
 });
 
+// When the server starts, create and save a new User document to the db
+// The "unique" rule in the User model's schema will prevent duplicate users from being added to the server
+db.User
+.create({ name: "ShaToya Jones" })
+.then(function(dbUser) {
+  console.log(dbUser);
+})
+.catch(function(err) {
+  console.log(err.message);
+});
+
 // Routes
 
 // A GET route for scraping the echojs website
 app.get("/scrape", function(req, res) {
   // First, we grab the body of the html with request
-  axios.get("http://www.tmz.com/").then(function(response) {
+  request.get("http://www.tmz.com/", function(error, response, html) {
     // Then, we load that into cheerio and save it to $ for a shorthand selector
-    var $ = cheerio.load(response.data);
+    var $ = cheerio.load(html);
 
     // Now, we grab every h4 within an article tag, and do the following:
-    $("href h2").each(function(i, element) {
+    $("article h4").each(function(i, element) {
       // Save an empty result object
       var result = {};
 
