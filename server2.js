@@ -37,9 +37,9 @@ mongoose.connect("mongodb://localhost/mongoscraper", {
 // A GET route for scraping the tmz website
 app.get("/scrape", function(req, res) {
   // First, çwe grab the body of the html with request
-  request.get("http://www.tmz.com/").then(function(response) {
+  request.get("http://www.tmz.com/", function(err, response, body) {
     // Then, we load that into cheerio and save it to $ for a shorthand selector
-    var $ = cheerio.load(response.data);
+    var $ = cheerio.load(body);
 
     // Now, we grab every h2 within an article tag, and do the following:
     $("article h4").each(function(i, element) {
@@ -59,13 +59,15 @@ app.get("/scrape", function(req, res) {
         .create(result)
         .then(function(dbArticle) {
           // If we were able to successfully scrape and save an Article, send a message to the client
-          res.send("Scrape Complete");
+          console.log(dbArticle);
         })
         .catch(function(err) {
           // If an error occurred, send it to the client
-          res.json(err);
+          console.log(err);
         });
     });
+
+    res.redirect("/");
   });
 });
 
