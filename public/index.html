@@ -48,8 +48,6 @@
   </head>
   <body>
     <div id="wrapper">
-    <div id="articles"></div>
-    <div id="notes"></div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="app.js"></script>
@@ -63,12 +61,14 @@
         </nav>
 
       <a class="waves-effect waves-light btn-large">Mongo Scraper</a>
-      <a class="waves-effect waves-light btn-large">Home</a>
+      <a href="/index.html" class="waves-effect waves-light btn-large">Home</a>
       <a class="waves-effect waves-light btn-large">Saved Articles</a>
-      <a class="waves-effect waves-light btn-large">Scrape New Articles</a>
+      <a href="/scrape" class="waves-effect waves-light btn-large">Scrape New Articles</a>
       
       <h1>Greetings!</h1>
+      <div id="articles"></div>
       <h2>Enter note below!</h2>
+      <div id="notes"></div>      
         <input type="text" name="title" placeholder="Title">
         <textarea type="text" name="body">Write Note Here</textarea>
   
